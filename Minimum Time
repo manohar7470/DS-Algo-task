@@ -1,6 +1,8 @@
-bool isvalid(int i, int j)
+#define R 4
+#define C 4
+bool isvalid(int m, int n)
 {
-    return (i >= 0 && j >= 0 && i < R && j < C);
+    return (m >= 0 && n >= 0 && m < R && j < C);
 }
  
 
@@ -17,9 +19,9 @@ bool isdelim(ele temp)
 
 bool checkall(int arr[][C])
 {
-    for (int i=0; i<R; i++)
-       for (int j=0; j<C; j++)
-          if (arr[i][j] == 1)
+    for (int m=0; m<R; m++)
+       for (int n=0; n<C; n++)
+          if (arr[m][n] == 1)
              return true;
     return false;
 }
@@ -33,14 +35,14 @@ int rotOranges(int arr[][C])
     int ans = 0;
  
   
-    for (int i=0; i<R; i++)
+    for (int m=0; m<R; m++)
     {
-       for (int j=0; j<C; j++)
+       for (int n=0; n<C; n++)
        {
-            if (arr[i][j] == 2)
+            if (arr[m][n] == 2)
             {
-                temp.x = i;
-                temp.y = j;
+                temp.x = m;
+                temp.y = n;
                 Q.push(temp);
             }
         }
@@ -82,7 +84,7 @@ int rotOranges(int arr[][C])
                 if (!flag) ans++, flag = true;
                 arr[temp.x-1][temp.y] = 2;
                 temp.x--;
-                Q.push(temp); // push this cell to Queue
+                Q.push(temp); 
                 temp.x++;
             }
  
@@ -91,7 +93,7 @@ int rotOranges(int arr[][C])
                 if (!flag) ans++, flag = true;
                 arr[temp.x][temp.y+1] = 2;
                 temp.y++;
-                Q.push(temp); // Push this cell to Queue
+                Q.push(temp); 
                 temp.y--;
             }
  
@@ -100,7 +102,7 @@ int rotOranges(int arr[][C])
                 if (!flag) ans++, flag = true;
                 arr[temp.x][temp.y-1] = 2;
                 temp.y--;
-                Q.push(temp); // push this cell to Queue
+                Q.push(temp); 
             }
  
             Q.pop();
