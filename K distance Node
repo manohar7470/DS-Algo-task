@@ -28,32 +28,32 @@ int printkdistanceNode(node* root, node* target , int k)
         return 0; 
     } 
 
-    int dl = printkdistanceNode(root->left, target, k); 
+    int leftd = printkdistanceNode(root->left, target, k); 
   
    
-    if (dl != -1) 
+    if (leftd != -1) 
     { 
          
-         if (dl + 1 == k) 
+         if (leftd + 1 == k) 
             cout << root->data << endl; 
   
         
          else
-            printkdistanceNodeDown(root->right, k-dl-2); 
+            printkdistanceNodeDown(root->right, k-leftd-2); 
   
         
-         return 1 + dl; 
+         return 1 + leftd; 
     } 
   
     
-    int dr = printkdistanceNode(root->right, target, k); 
-    if (dr != -1) 
+    int rightd = printkdistanceNode(root->right, target, k); 
+    if (rightd != -1) 
     { 
-         if (dr + 1 == k) 
+         if (rightd + 1 == k) 
             cout << root->data << endl; 
          else
-            printkdistanceNodeDown(root->left, k-dr-2); 
-         return 1 + dr; 
+            printkdistanceNodeDown(root->left, k-rightd-2); 
+         return 1 + rightd; 
     } 
   
    
