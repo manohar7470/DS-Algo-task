@@ -2,7 +2,7 @@
 #define C 4
 bool isvalid(int m, int n)
 {
-    return (m >= 0 && n >= 0 && m < R && j < C);
+    return (m >= 0 && n >= 0 && m < R && n< C);
 }
  
 
@@ -29,7 +29,7 @@ bool checkall(int arr[][C])
 
 int rotOranges(int arr[][C])
 {
-    // Create a queue of cells
+    
     queue<ele> Q;
     ele temp;
     int ans = 0;
